@@ -91,6 +91,9 @@ public class BaseClass
 	@BeforeMethod
 	public void loginToAppln()
 	{
+		LoginPage loginpage = new LoginPage(driver);
+		loginpage.loginLink();
+		
 		String USERNAME = null;
 		try {
 			USERNAME = fLib.getPropertKeyValue("username");
@@ -115,7 +118,7 @@ public class BaseClass
 	public void logoutFromAppln()
 	{
 		HomePage hpage=new HomePage(driver);
-		hpage.logout(driver);
+		hpage.Logout();
 		System.out.println("Logout successful");
 	}
 	/**

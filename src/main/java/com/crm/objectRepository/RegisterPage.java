@@ -34,9 +34,10 @@ public class RegisterPage extends WebDriverUtility {
 	@FindBy(id = "description") private WebElement descriptionEdt;
 	@FindBy(id = "landmark") private WebElement landmarkEdt;
 	@FindBy(id = "address") private WebElement addressEdt;
-	@FindBy(id = "vacant") private WebElement vacantEdt;
-	@FindBy(id = "image") private WebElement imageEdt;
-	@FindBy(name = "register_individuals") private WebElement registerButton;
+	@FindBy(xpath = "//select[@class='form-control']") private WebElement vacantEdt;
+	@FindBy(xpath  = "//input[@type='file']") private WebElement imageEdt;
+	@FindBy(name = "register_individuals") private WebElement submitButton;
+	
 
 	//utilization
 
@@ -94,19 +95,19 @@ public class RegisterPage extends WebDriverUtility {
 	public WebElement getImageEdt() {
 		return imageEdt;
 	}
-	public WebElement getRegisterButton() {
-		return registerButton;
+	public WebElement getSubmitButton() {
+		return submitButton;
 	}
 
 	public void fullName(String name) {
 		getFullnameEdt().sendKeys(name);
 	}
 
-	public void mobNum(CharSequence[] num) {
+	public void mobNum(String num) {
 		getMobileEdt().sendKeys(num);
 	}
 
-	public void altmobNum(CharSequence[] altNum) {
+	public void altmobNum(String altNum) {
 		getAltmobEdt().sendKeys(altNum);
 	}
 
@@ -114,7 +115,7 @@ public class RegisterPage extends WebDriverUtility {
 		getEmailEdt().sendKeys(email);
 	}
 
-	public void plotNumber(CharSequence[] num) {
+	public void plotNumber(String num) {
 		getPltnumEdt().sendKeys(num);
 	}
 
@@ -134,15 +135,15 @@ public class RegisterPage extends WebDriverUtility {
 		getCityEdt().sendKeys(city);
 	}
 
-	public void Rent(CharSequence[] rent) {
+	public void Rent(String rent) {
 		getRentEdt().sendKeys(rent);
 	}
 
-	public void Sale(CharSequence[] sale) {
+	public void Sale(String sale) {
 		getSaleEdt().sendKeys(sale);
 	}
 
-	public void Deposit(CharSequence[] deposit) {
+	public void Deposit(String deposit) {
 		getDepositEdt().sendKeys(deposit);
 	}
 
@@ -170,8 +171,8 @@ public class RegisterPage extends WebDriverUtility {
 		getImageEdt().sendKeys(path);
 	}
 
-	public void RegisterBtn() {
-		getRegisterButton().click();
+	public void submitBtn() {
+		getSubmitButton().click();
 	}
 
 

@@ -8,32 +8,36 @@ import org.openqa.selenium.support.PageFactory;
 import com.crm.genericUtilities.WebDriverUtility;
 /**
  * 
- * @author SanjayBabu
+ * @author Sumanth H A
  *
  */
 public class HomePage extends WebDriverUtility{
 	//WebDriver driver;
-	//declaretion
-	@FindBy(linkText = "Organizations")
-	private WebElement organisationsLnk;
+	//declaration
 
-	@FindBy(linkText = "Contacts")
-	private WebElement contactsLnk;
+	@FindBy(xpath  = "//a[.='Logout']")
+	private WebElement logoutLnk;
 
-	@FindBy(linkText = "Products")
-	private WebElement productsLnk;
+	@FindBy(xpath = "//a[@href='../app/users.php']")
+	private WebElement registeredUserLnk;
 
-	@FindBy(xpath = "//img[@src='themes/softed/images/menuDnArrow.gif']")
-	private WebElement moreLnk;
+	@FindBy(xpath = "//a[@href='../app/users.php']/../..//a[@href='../app/list.php']")
+	private WebElement roomsForRentLnk;
 
-	@FindBy(xpath = "//img[@src='themes/softed/images/user.PNG']")
-	private WebElement administratorLnk;
-
-	@FindBy(linkText = "Sign Out")
-	private WebElement signoutLnk;
+	@FindBy(xpath = "//a[.='Home']")
+	private WebElement homeLnk;
 
 	@FindBy(xpath = "//a[.='Register']")
-	private WebElement registerLnk;
+	private WebElement registerLink;
+
+	@FindBy(xpath = "//a[.='Details/Update']")
+	private WebElement detailsupdatelnk;
+
+	@FindBy(xpath = "//a[.='Send SMS']")
+	private WebElement sendSMSLnk;
+
+	@FindBy(xpath = "//a[.='Complaint List']")
+	private WebElement complaintListLnk;
 
 	//initialization
 	public HomePage(WebDriver driver)
@@ -44,39 +48,54 @@ public class HomePage extends WebDriverUtility{
 
 
 	//utilization
-	public WebElement getOrganisationsLnk() {
-		return organisationsLnk;
-	}
 
-	public WebElement getContactsLnk() {
-		return contactsLnk;
-	}
-
-	public WebElement getProductsLnk() {
-		return productsLnk;
-	}
-
-	public WebElement getMoreLnk() {
-		return moreLnk;
-	}
-
-	public WebElement getAdministratorLnk() {
-		return administratorLnk;
-	}
-
-	public WebElement getSignoutLnk() {
-		return signoutLnk;
+	public WebElement getLogoutLnk() {
+		return logoutLnk;
 	}
 
 
-	public WebElement getRegisterLnk() {
-		return registerLnk;
+	public WebElement getRegisteredUserLnk() {
+		return registeredUserLnk;
 	}
 
 
-	public void logout(WebDriver driver)
-	{                     
-		mouseOverAnElement(driver, administratorLnk);
-		signoutLnk.click();
+	public WebElement getRoomsForRentLnk() {
+		return roomsForRentLnk;
 	}
+
+
+	public WebElement getHomeLnk() {
+		return homeLnk;
+	}
+
+
+	public WebElement getRegisterLink() {
+		return registerLink;
+	}
+
+
+	public WebElement getDetailsupdatelnk() {
+		return detailsupdatelnk;
+	}
+
+
+	public WebElement getSendSMSLnk() {
+		return sendSMSLnk;
+	}
+
+
+	public WebElement getComplaintListLnk() {
+		return complaintListLnk;
+	}
+
+	public void Logout() {
+		logoutLnk.click();
+
+	}
+
+	public void registerLnk() {
+		registerLink.click();
+
+	}
+
 }
