@@ -1,7 +1,11 @@
 package com.crm.CreateOwner;
 
+import static org.testng.Assert.fail;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.crm.genericUtilities.BaseClass;
@@ -12,9 +16,10 @@ import com.crm.objectRepository.LoginPage;
 import com.crm.objectRepository.OwnerHomePage;
 import com.crm.objectRepository.RegisterPage;
 
+@Listeners(com.crm.genericUtilities.ListnerImpIn.class)
 public class CreateOwnerAndVerify extends BaseClass{
 
-	@Test
+	@Test(retryAnalyzer = com.crm.genericUtilities.RetryAnalyserImptn.class)
 	public  void VerifyTheOwnerCreatedRoomDetailsinTheRegisterdRoomList() throws Throwable {
 
 		//Fetch the data from excel sheet
@@ -72,7 +77,10 @@ public class CreateOwnerAndVerify extends BaseClass{
 
 		//click on register button
 		registerpage.submitBtn();
-
+		
+		
+	
+		
 		//navigate to home page
 		OwnerHomePage ownerHomePage=new OwnerHomePage(driver);
 		ownerHomePage.getHomeLink().click();
